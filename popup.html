@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' gap:; script-src 'self' 'unsafe-inline' nonce  data: http://localhost:3000 'unsafe-eval'; object-src *; style-src 'self' data: 'unsafe-inline'; img-src 'self' data:; media-src 'self' data:; font-src 'self' data:; connect-src *">
+  <title>Local storage sharing across domain</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div>
+    <h4>Share local storage across multiple domains</h4>
+    <label for="hostDomain">
+      Host domain:
+      <input type="text" id="hostDomain" name="hostDomain" placeholder="Host domain">
+    </label>
+    <label for="targetDomain">
+      Target domain:
+      <input type="text" id="targetDomain" name="targetDomain" placeholder="Target domain">
+    </label>
+    <label for="sharedLocalStorageKey">
+      Shared Local storage key:
+      <input type="text" id="sharedLocalStorageKey" name="sharedLocalStorageKey" placeholder="Target domain">
+    </label>
+    <div><button id="reset">Reset</button></div>
+    <div class="notes">
+      <strong>** Notes</strong>
+      <br>
+      - Multiple value can be separated by commas ,
+      <br>
+      - Supports all domains with wildcard *
+      <br>
+      - Host domain: source of local storage
+      <br>
+      - Target domain: where the local storage from host domain will be used
+      <br>
+      - Refresh activeTab/hostDomain to Verify if activeTab has expected local storage key/value from target domain.
+    </div>
+  </div>  
+  <script src="./popup.js"></script>
+</body>
+</html>
